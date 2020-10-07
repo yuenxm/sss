@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.blueeyescloud.ext.devicemaster.plan.util.PlanUiUtils" />
+
+        <variable
+            name="viewmodel"
+            type="com.blueeyescloud.ext.devicemaster.clean.CleanViewModel" />
+
+        <variable
+            name="onBackListener"
+            type="com.blueeyescloud.ext.view.TitleBar.OnBackClickListener" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.blueeyescloud.ext.view.TitleBar
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/device_clean_title"
+            binding:onBack="@{onBackListener}" />
+
+        <RelativeLayout
+            android:id="@+id/rlyt_content_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/titlebar">
+
+            <LinearLayout
+                android:id="@+id/llyt_label"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_53dp"
+                android:background="@color/page_bg_color"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_16dp"
+                    android:drawableLeft="@drawable/ic_info"
+                    android:drawablePadding="@dimen/dimen_4dp"
+                    android:text="@string/device_clean_label"
+                    android:textColor="#A6000000"
+                    android:textSize="@dimen/dimen_12sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/rlyt_bottom"
+                android:layout_below="@id/llyt_label"
+                android:layout_marginBottom="@dimen/dimen_20dp" />
+
+            <RelativeLayout
+                android:id="@+id/rlyt_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_48dp"
+                android:layout_alignParentBottom="true">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/device_app_list_divider_color" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_restart_after_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimen_20dp"
+                    android:button="@drawable/bg_device_checkbox_outline_gray_to_blue_selector"
+                    android:checked="@={viewmodel.needReboot}"
+                    android:paddingLeft="@dimen/dimen_4dp"
+                    android:paddingTop="@dimen/dimen_8dp"
+                    android:paddingRight="@dimen/dimen_8dp"
+                    android:paddingBottom="@dimen/dimen_8dp"
+                    android:text="@string/device_clean_restart_after_completed"
+                    android:textColor="#A6000000"
+                    android:textSize="@dimen/dimen_13sp" />
+
+                <Button
+                    android:id="@+id/btn_clean_at_once"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_27dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:background="@drawable/bg_btn_blue_round_selector"
+                    android:onClick="@{clickListener}"
+                    android:text="@string/device_clean_at_once"
+                    android:textColor="#D9FFFFFF"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btn_clean_skip"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_27dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimen_8dp"
+                    android:layout_toLeftOf="@id/btn_clean_at_once"
+                    android:background="@drawable/bg_transparent_rect_blue_outline_round_selector"
+                    android:onClick="@{clickListener}"
+                    android:text="@string/device_clean_skip"
+                    android:textColor="@color/primary_color"
+                    android:textSize="13sp"
+                    android:visibility="@{PlanUiUtils.getCleanSkipLayoutVisibility(viewmodel.sourceType)}" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

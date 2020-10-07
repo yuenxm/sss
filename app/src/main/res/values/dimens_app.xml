@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titlebar_height">@dimen/dimen_48dp</dimen>
+
+    <dimen name="device_info_item_height">@dimen/dimen_50dp</dimen>
+    <dimen name="device_plan_bottom_btn_layout_height">@dimen/dimen_48dp</dimen>
+</resources>

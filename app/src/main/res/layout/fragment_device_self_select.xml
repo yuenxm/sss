@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="titleName"
+            type="String" />
+
+        <variable
+            name="onBackLisener"
+            type="com.blueeyescloud.ext.view.TitleBar.OnBackClickListener" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/page_bg_color">
+
+        <com.blueeyescloud.ext.view.TitleBar
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:onBack="@{onBackLisener}"
+            binding:title="@{titleName}" />
+
+        <ExpandableListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llyt_bottom"
+
+            android:layout_below="@id/titlebar"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:childDivider="@drawable/bg_device_self_select_expand_list_divider" />
+
+        <LinearLayout
+            android:id="@+id/llyt_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_48dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:background="#0f000000" />
+
+            <Button
+                android:id="@+id/btn_next_step"
+                android:layout_width="@dimen/dimen_328dp"
+                android:layout_height="@dimen/dimen_38dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_btn_blue_round_selector"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@string/device_plan_next_step"
+                android:textColor="#D9FFFFFF" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/flyt_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/titlebar" />
+
+    </RelativeLayout>
+</layout>

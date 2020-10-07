@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:layout_width="@dimen/dimen_18dp"
+            android:layout_height="@dimen/dimen_18dp"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/progress_roate_loading"
+            android:indeterminateOnly="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_6dp"
+            android:text="@string/ext_loading_label"
+            android:textColor="#73000000"
+            android:textSize="@dimen/dimen_12sp" />
+    </LinearLayout>
+
+    <com.blueeyescloud.ext.view.ErrorStatusView
+        android:id="@+id/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="@dimen/dimen_104dp"
+        android:layout_height="@dimen/dimen_62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_60dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_24dp"
+            android:layout_height="@dimen/dimen_24dp"
+            android:src="@drawable/ic_empty_data_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:gravity="center"
+            android:text="暂无数据"
+            android:textColor="#40000000"
+            android:textSize="@dimen/dimen_12sp" />
+    </LinearLayout>
+
+</merge>

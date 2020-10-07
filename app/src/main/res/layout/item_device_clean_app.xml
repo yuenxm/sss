@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="java.util.Set" />
+
+        <import type="com.blueeyescloud.ext.devicemaster.utils.FormatUtils" />
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="appInfo"
+            type="com.blueeyescloud.ext.devicemaster.clean.InstalledAppInfo" />
+
+        <variable
+            name="selectedSets"
+            type="Set&lt;Integer&gt;" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_56dp"
+        android:paddingLeft="@dimen/dimen_16dp"
+        android:paddingRight="@dimen/dimen_8dp">
+
+        <ImageView
+            android:id="@+id/iv_device_clean"
+            android:layout_width="@dimen/dimen_32dp"
+            android:layout_height="@dimen/dimen_32dp"
+            android:layout_centerVertical="true"
+            android:src="@{appInfo.icon}" />
+
+        <TextView
+            android:id="@+id/tv_device_clean_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_11dp"
+            android:layout_toRightOf="@id/iv_device_clean"
+            android:text="@{appInfo.appName}"
+            android:textColor="#D9000000"
+            android:textSize="@dimen/dimen_13sp" />
+
+        <TextView
+            android:id="@+id/tv_device_clean_app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_device_clean_app_name"
+            android:layout_alignLeft="@id/tv_device_clean_app_name"
+            android:text="@{'v' + appInfo.versionName}"
+            android:textColor="#40000000"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <TextView
+            android:id="@+id/tv_device_clean_app_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_device_clean_app_version"
+            android:layout_marginLeft="@dimen/dimen_6dp"
+            android:layout_toRightOf="@id/tv_device_clean_app_version"
+            android:text="@{FormatUtils.formatFileSize(appInfo.size)}"
+            android:textColor="#40000000"
+            android:textSize="@dimen/dimen_12sp"
+            android:visibility="@{appInfo.size == 0 ? View.INVISIBLE : View.VISIBLE}" />
+
+        <CheckBox
+            android:id="@+id/cb_select_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:button="@drawable/bg_device_checkbox_outline_gray_to_blue_selector"
+            android:checked="@{selectedSets.contains(position)}"
+            android:gravity="center"
+            android:padding="@dimen/dimen_4dp" />
+
+    </RelativeLayout>
+</layout>

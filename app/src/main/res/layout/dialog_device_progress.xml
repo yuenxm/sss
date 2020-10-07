@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 需要多加一层linearLayout，否则用现在代码里的builde方式添加，高度显示不正确-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/dimen_136dp"
+        android:layout_height="@dimen/dimen_34dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_8dp">
+
+        <ProgressBar
+            android:layout_width="@dimen/dimen_18dp"
+            android:layout_height="@dimen/dimen_18dp"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/progress_roate_loading"
+            android:indeterminateOnly="true" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_6dp"
+            android:text="@string/ext_loading_label"
+            android:textColor="#73000000"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <LinearLayout
+            android:id="@+id/llyt_close_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_8dp"
+            android:paddingRight="@dimen/dimen_8dp">
+
+            <View
+                android:layout_width="@dimen/dimen_1dp"
+                android:layout_height="@dimen/dimen_19dp"
+                android:background="#26000000" />
+
+            <ImageView
+                android:layout_width="@dimen/dimen_7dp"
+                android:layout_height="@dimen/dimen_7dp"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

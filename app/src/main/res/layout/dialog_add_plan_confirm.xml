@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.blueeyescloud.ext.devicemaster.plan.viewmodel.DevicePlanViewModel" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/dimen_296dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rect_round_corner_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/device_dialog_add_plan_confirm_title"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/dimen_16sp" />
+
+        <com.blueeyescloud.ext.view.EditTextEx
+            android:layout_width="@dimen/dimen_256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_9dp"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:text="@={viewModel.deviceInfoLiveData.name}"
+            android:textColor="#D9000000"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:background="#1A000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_38dp"
+            android:divider="@drawable/bg_dialog_divider"
+            android:showDividers="middle">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_rect_transparent_pressed_selector"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@string/btn_cancel"
+                android:textColor="#A6000000"
+                android:textSize="@dimen/dimen_13dp" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_rect_transparent_pressed_selector"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="@string/btn_save"
+                android:textColor="@color/primary_color"
+                android:textSize="@dimen/dimen_13dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

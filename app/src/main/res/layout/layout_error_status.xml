@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llyt_no_network_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_47dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_18dp"
+            android:layout_height="@dimen/dimen_18dp"
+            android:src="@drawable/ic_no_network" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="无可用网络"
+            android:textColor="#D9000000"
+            android:textSize="@dimen/dimen_13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_13dp"
+            android:text="检查当前网络状态或应用网络连接权限"
+            android:textColor="#73000000"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="@dimen/dimen_60dp"
+            android:layout_height="@dimen/dimen_27dp"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:background="@drawable/bg_transparent_rect_blue_outline_round_selector"
+            android:text="刷新"
+            android:textColor="@color/primary_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llyt_server_error_layout"
+        android:layout_width="@dimen/dimen_104dp"
+        android:layout_height="@dimen/dimen_62dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_16dp"
+            android:layout_height="@dimen/dimen_16dp"
+            android:src="@drawable/ic_error_tip" />
+
+        <TextView
+            android:id="@+id/tv_error_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:gravity="center"
+            android:text="数据获取异常"
+            android:textColor="#73000000"
+            android:textSize="@dimen/dimen_12sp" />
+    </LinearLayout>
+</merge>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.os.Build" />
+
+        <import type="com.blueeyescloud.ext.devicemaster.plan.util.PlanUiUtils" />
+
+        <variable
+            name="sourceType"
+            type="int" />
+
+        <variable
+            name="masterPlanEntity"
+            type="com.blueeyescloud.ext.devicemaster.entity.MasterPlanEntity" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <!--        <variable-->
+        <!--            name="viewmodel"-->
+        <!--            type="com.blueeyescloud.ext.devicemaster.plan.viewmodel.DevicePlanViewModel" />-->
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/page_bg_color"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/flyt_title_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.blueeyescloud.ext.view.TitleBar
+                android:id="@+id/titlebar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@{PlanUiUtils.getTitlebarName(context, sourceType)}" />
+
+            <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right|bottom"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:onClick="@{clickListener}"
+                android:padding="@dimen/dimen_6dp"
+                android:src="@drawable/ic_device_delete"
+                android:visibility="@{PlanUiUtils.getDeleteButtonVisibility(sourceType)}" />
+
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llyt_device_plan_bottom_btn_layout"
+            android:layout_below="@id/flyt_title_bar_layout"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_70dp"
+                android:divider="@drawable/bg_device_plan_attribute_item_divider"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_plan_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:visibility="@{PlanUiUtils.getPlanNameLayoutVisibility(sourceType)}"
+                    app:editable="false"
+                    app:info="@{masterPlanEntity.name}"
+                    app:label="@string/planName" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_manufacture"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.MANUFACTURER)}"
+                    app:info="@={masterPlanEntity.attribute.manufacturer}"
+                    app:label="@string/manufacture" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.BRAND)}"
+                    app:info="@={masterPlanEntity.attribute.brand}"
+                    app:label="@string/brand" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.MODEL)}"
+                    app:info="@={masterPlanEntity.attribute.model}"
+                    app:label="@string/model" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_serial_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.serial}"
+                    app:label="@string/serial_num" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_system_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="false"
+                    app:info="@{Build.VERSION.RELEASE}"
+                    app:label="@string/system_version" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_phone_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.phonenum}"
+                    app:label="@string/phone_num" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_android_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.androidid}"
+                    app:label="@string/android_id" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_imei"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.imei}"
+                    app:label="@string/imei" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_imsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.imsi}"
+                    app:label="@string/imsi" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_iccid"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.iccid}"
+                    app:label="@string/iccid" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_wifi_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.wifiname}"
+                    app:label="@string/wifi_name" />
+
+                <com.blueeyescloud.ext.view.DeviceInfoItemView
+                    android:id="@+id/device_info_wifi_mac"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/device_info_item_height"
+                    app:editable="@{PlanUiUtils.getGeneralEditable(sourceType, PlanUiUtils.DEFAULT)}"
+                    app:info="@={masterPlanEntity.attribute.wifimac}"
+                    app:label="@string/wifi_mac" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/llyt_device_plan_bottom_btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/device_plan_bottom_btn_layout_height"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_6dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="@{PlanUiUtils.getPlanButtonLayoutVisibility(sourceType)}">
+
+            <Button
+                android:id="@+id/btn_add_as_new_plan"
+                android:layout_width="@dimen/dimen_160dp"
+                android:layout_height="@dimen/dimen_37dp"
+                android:background="@drawable/bg_transparent_rect_blue_outline_round_selector"
+                android:onClick="@{clickListener}"
+                android:text="@{PlanUiUtils.getPlanActionButtonText(context, sourceType)}"
+                android:textColor="@color/button_primary_color" />
+
+            <Button
+                android:id="@+id/btn_create_new_device"
+                android:layout_width="@dimen/dimen_160dp"
+                android:layout_height="@dimen/dimen_37dp"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:background="@drawable/bg_btn_blue_round_selector"
+                android:onClick="@{clickListener}"
+                android:text="@string/device_plan_btn_create_new_device"
+                android:textColor="#D9FFFFFF" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlyt_multiple_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/flyt_title_bar_layout" />
+    </RelativeLayout>
+</layout>

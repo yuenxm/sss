@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/primary_color</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">@color/primary_color</color>
+
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="red">#ff0000</color>
+    <color name="pressed_white">#1affffff</color>
+    <color name="pressed_transparent">#1a000000</color>
+
+    <color name="primary_color">#4C60D8</color>
+    <color name="edit_text_normal_color">@color/primary_color</color>
+    <color name="edit_text_activated_color">@color/primary_color</color>
+    <color name="button_primary_color">@color/primary_color</color>
+    <color name="button_primary_color_pressed">#E54C60D8</color>
+    <color name="button_primary_color_disable">#A84C60D8</color>
+    <color name="white_pressed">#1AFFFFFF</color>
+    <color name="page_bg_color">#FFF8F8F8</color>
+
+    <color name="device_home_divider_color">#eeeeee</color>
+    <color name="device_app_list_divider_color">#0F000000</color>
+</resources>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="deviceInfoBrief"
+            type="com.blueeyescloud.ext.devicemaster.home.DeviceInfoBrief" />
+
+        <variable
+            name="onClickListener"
+            type="com.blueeyescloud.ext.devicemaster.home.HomeActivity.OnClickListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/page_bg_color"
+        android:orientation="vertical">
+
+        <com.blueeyescloud.ext.view.StatusBarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_187dp"
+            android:background="@color/primary_color">
+
+            <ImageView
+                android:id="@+id/ibtn_back"
+                android:layout_width="@dimen/dimen_22dp"
+                android:layout_height="@dimen/dimen_22dp"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:layout_marginTop="@dimen/dimen_13dp"
+                android:onClick="@{onClickListener::onClick}"
+                android:padding="@dimen/dimen_4dp"
+                android:src="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/iv_phone_brand"
+                android:layout_width="@dimen/dimen_32dp"
+                android:layout_height="@dimen/dimen_32dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_36dp"
+                android:src="@drawable/ic_device_home_phone_brand" />
+
+            <TextView
+                android:id="@+id/tv_phone_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_phone_brand"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_6dp"
+                android:text="@{deviceInfoBrief.brand}"
+                android:textColor="#D9FFFFFF"
+                android:textSize="@dimen/dimen_12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_phone_brand"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:text="@{deviceInfoBrief.model}"
+                android:textColor="#D9FFFFFF"
+                android:textSize="@dimen/dimen_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_30dp"
+                android:text="@string/device_home_serial_no_label"
+                android:textColor="#D9FFFFFF"
+                android:textSize="@dimen/dimen_12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/dimen_60dp"
+                android:layout_marginBottom="@dimen/dimen_30dp"
+                android:text="@{deviceInfoBrief.serialNo}"
+                android:textColor="#D9FFFFFF"
+                android:textSize="@dimen/dimen_12sp" />
+
+            <Button
+                android:id="@+id/btn_device_detail"
+                android:layout_width="@dimen/dimen_72dp"
+                android:layout_height="@dimen/dimen_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_24dp"
+                android:background="@drawable/bg_transparent_rect_white_outline_round_selector"
+                android:gravity="center"
+                android:onClick="@{onClickListener::onClick}"
+                android:text="@string/device_home_device_info"
+                android:textColor="#A6FFFFFF"
+                android:textSize="@dimen/dimen_10sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_28dp"
+            android:text="@string/device_home_device_mgr_label"
+            android:textColor="#73000000"
+            android:textSize="@dimen/dimen_13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_12dp"
+            android:background="@drawable/bg_rect_round_corner_white"
+            android:divider="@drawable/bg_device_master_home_item_divider"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <com.blueeyescloud.ext.view.DeviceMgrHomeItemView
+                android:id="@+id/device_home_new_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45dp"
+                android:onClick="@{onClickListener::onClick}"
+                app:hint="@string/device_home_new_phone_hint"
+                app:label="@string/device_home_new_phone_label" />
+
+            <com.blueeyescloud.ext.view.DeviceMgrHomeItemView
+                android:id="@+id/device_home_choose_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45dp"
+                android:onClick="@{onClickListener::onClick}"
+                app:hint="@string/device_home_choose_phone_hint"
+                app:label="@string/device_home_choose_phone_label" />
+
+            <com.blueeyescloud.ext.view.DeviceMgrHomeItemView
+                android:id="@+id/device_home_my_device_plan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45dp"
+                android:onClick="@{onClickListener::onClick}"
+                app:hint="@string/device_home_my_device_plan_hint"
+                app:label="@string/device_home_my_device_plan_label" />
+
+            <com.blueeyescloud.ext.view.DeviceMgrHomeItemView
+                android:id="@+id/device_home_phone_plan_change_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45dp"
+                android:onClick="@{onClickListener::onClick}"
+                android:visibility="gone"
+                app:hint="@string/device_home_phone_plan_change_list_hint"
+                app:label="@string/device_home_phone_plan_change_list_label" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_25dp"
+            android:text="@string/device_home_app_mgr_label"
+            android:textColor="#73000000"
+            android:textSize="@dimen/dimen_13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_12dp"
+            android:background="@drawable/bg_rect_round_corner_white"
+            android:divider="@drawable/bg_device_master_home_item_divider"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <com.blueeyescloud.ext.view.DeviceMgrHomeItemView
+                android:id="@+id/device_home_one_click_clean"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45dp"
+                android:onClick="@{onClickListener::onClick}"
+                app:hint="@string/device_home_one_click_clean_hint"
+                app:label="@string/device_home_one_click_clean_label" />
+
+            <com.blueeyescloud.ext.view.DeviceMgrHomeItemView
+                android:id="@+id/device_home_app_backup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_45dp"
+                android:onClick="@{onClickListener::onClick}"
+                android:visibility="gone"
+                app:hint="@string/device_home_app_backup_hint"
+                app:label="@string/device_home_app_backup_label" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

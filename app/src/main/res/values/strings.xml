@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Ext</string>
+    <string name="ext_home_title">云机拓展服务</string>
+    <string name="ext_home_item_device_master_name">设备大师</string>
+    <string name="ext_home_item_device_master_desc">一键新机、设置手机参数</string>
+    <string name="ext_home_item_limited_free">限时免费</string>
+    <string name="ext_home_item_gps_name">虚拟定位</string>
+    <string name="ext_home_item_gps_desc">设置云机实时地理位置</string>
+
+    <string name="ext_loading_label">正在加载中...</string>
+
+    <!--设备大师首页 -->
+    <string name="device_home_serial_no_label">序列号:</string>
+    <string name="device_home_device_info">设备信息</string>
+    <string name="device_home_device_mgr_label">设备管理</string>
+    <string name="device_home_new_phone_label">一键新机</string>
+    <string name="device_home_new_phone_hint">随机变更机型及参数</string>
+    <string name="device_home_choose_phone_label">自选机型</string>
+    <string name="device_home_choose_phone_hint">自定义修改设备</string>
+    <string name="device_home_my_device_plan_label">我的设备方案</string>
+    <string name="device_home_my_device_plan_hint">通过我已保存的方案换机</string>
+    <string name="device_home_phone_plan_change_list_label">换机历史</string>
+    <string name="device_home_phone_plan_change_list_hint">查看使用过的方案</string>
+    <string name="device_home_app_mgr_label">应用管理</string>
+    <string name="device_home_one_click_clean_label">一键清理</string>
+    <string name="device_home_one_click_clean_hint">清理应用账号、空间、缓存</string>
+    <string name="device_home_app_backup_label">应用备份</string>
+    <string name="device_home_app_backup_hint">备份应用信息</string>
+
+    <string name="planName">方案名称</string>
+    <string name="manufacture">厂商</string>
+    <string name="brand">品牌</string>
+    <string name="model">设备型号</string>
+    <string name="serial_num">序列号</string>
+    <string name="system_version">系统版本号</string>
+    <string name="phone_num">手机号</string>
+    <string name="android_id">Android ID</string>
+    <string name="imei">IMEI</string>
+    <string name="imsi">IMSI</string>
+    <string name="iccid">ICCID</string>
+    <string name="wifi_name">WI-FI名称</string>
+    <string name="wifi_mac">WI-FI mac</string>
+
+    <!-- 设备方案信息界面 -->
+    <string name="device_plan_title_param_setting">参数设置</string>
+    <string name="device_plan_title_manage_plan">管理设备方案</string>
+    <string name="device_plan_title_plan_detail">设备详情</string>
+    <string name="device_plan_btn_add_new_plan">添加到方案</string>
+    <string name="device_plan_btn_create_new_device">生成新设备</string>
+    <string name="device_plan_btn_save_plan">保存方案</string>
+    <string name="device_plan_save_plan_success">已保存</string>
+    <string name="device_plan_save_plan_fail_label">保存失败:%s</string>
+    <string name="device_plan_delete_plan_success">已删除</string>
+    <string name="device_plan_delete_plan_fail_label">删除失败:%s</string>
+
+    <string name="device_plan_empty_manufacturer">厂商名称不可空</string>
+    <string name="device_plan_empty_brand">品牌不可为空</string>
+    <string name="device_plan_empty_model">型号不可为空</string>
+    <string name="device_plan_empty_serial">序列号不可为空</string>
+    <string name="device_plan_empty_phonenum">手机号不可为空</string>
+    <string name="device_plan_empty_androidid">android id不可为空</string>
+    <string name="device_plan_empty_imei">imei不可为空</string>
+    <string name="device_plan_empty_imsi">imsi不可为空</string>
+    <string name="device_plan_empty_iccid">iccid不可为空</string>
+    <string name="device_plan_empty_wifiname">wifi名称不可为空</string>
+    <string name="device_plan_empty_wifimac">wifi mac不可为空</string>
+
+    <string name="device_plan_name_empty">方案名不能为空</string>
+    <string name="device_plan_name_invalid">方案名不可超过64字符</string>
+
+    <string name="device_plan_invalid_manufacturer">厂商名称不可超过64字符</string>
+    <string name="device_plan_invalid_brand">品牌不可超过64字符</string>
+    <string name="device_plan_invalid_model">型号不可超过64字符</string>
+    <string name="device_plan_invalid_serial">序列号仅支持8位字母及数字组合</string>
+    <string name="device_plan_invalid_phonenum">手机号不符合有效格式</string>
+    <string name="device_plan_invalid_androidid">android id仅支持16位字母及数字组合</string>
+    <string name="device_plan_invalid_imei">imei不符合有效格式</string>
+    <string name="device_plan_invalid_imsi">imsi不符合有效格式</string>
+    <string name="device_plan_invalid_iccid">iccid不符合有效格式</string>
+    <string name="device_plan_invalid_wifiname">wifi名称不可超过64字符</string>
+    <string name="device_plan_invalid_wifimac">wifi mac不符合有效格式</string>
+
+    <string name="device_plan_title_device_self_select">机型设置</string>
+    <string name="device_plan_next_step">下一步</string>
+
+    <string name="device_dialog_add_plan_confirm_title">添加到我的方案</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_confirm">确认</string>
+
+    <!-- 清理应用 -->
+    <string name="device_clean_title">清理应用</string>
+    <string name="device_clean_label">将对应用的账号、空间、缓存等进行清理</string>
+    <string name="device_clean_restart_after_completed">完成后重启设备</string>
+    <string name="device_clean_skip">跳过清理</string>
+    <string name="device_clean_at_once">立即清理</string>
+
+    <!-- 我的方案列表 -->
+    <string name="device_my_plan_list_title">设备方案</string>
+    <string name="device_plan_delete_tip">确认删除设备方案</string>
+
+
+</resources>

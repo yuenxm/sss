@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.blueeyescloud.ext"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//
+//        externalNativeBuild {
+//            cmake {
+//                cppFlags ""
+//            }
+//        }
+//        ndk {
+//            abiFilters  'armeabi-v7a','x86'
+//        }
+    }
+
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/cpp/CMakeLists.txt"
+//            version "3.10.2"
+//        }
+//    }
+//
+//    packagingOptions {
+//        pickFirst 'lib/armeabi-v7a/libmario.so'
+//    }
+
+    signingConfigs {
+        debug {
+            storeFile file("../../keystore/mato.keystore")
+            storePassword "mato@zyyxmu"
+            keyAlias "android.keystore"
+            keyPassword "mato@zyyxmu"
+        }
+        release {
+            storeFile file("../../keystore/mato.keystore")
+            storePassword "mato@zyyxmu"
+            keyAlias "android.keystore"
+            keyPassword "mato@zyyxmu"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    dataBinding{
+        enabled = true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "androidx.paging:paging-runtime:2.1.2"
+//    implementation "androidx.paging:paging-rxjava2:2.1.2"
+    implementation "org.yaml:snakeyaml:1.21"
+
+
+    implementation project(':baselib')
+}

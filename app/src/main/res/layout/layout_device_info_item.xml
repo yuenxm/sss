@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:text="厂商"
+        android:textColor="#D9000000"
+        android:textSize="@dimen/dimen_13sp" />
+
+    <com.blueeyescloud.ext.view.EditTextEx
+        android:id="@+id/et_item_info"
+        android:layout_width="@dimen/dimen_160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dimen_16dp"
+        android:background="@null"
+        android:gravity="right"
+        android:text="华为"
+        android:textColor="@drawable/device_info_item_textcolor_selector"
+        android:textSize="@dimen/dimen_12sp" />
+
+</merge>

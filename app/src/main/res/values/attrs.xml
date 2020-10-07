@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="title" format="reference|string" />
+    <attr name="label" format="reference|string" />
+    <attr name="hint" format="reference|string" />
+    <attr name="info" format="reference|string" />
+    <attr name="editable" format="boolean" />
+    <attr name="visible" format="boolean" />
+
+    <declare-styleable name="TitleBar">
+        <attr name="title" />
+    </declare-styleable>
+
+    <declare-styleable name="DeviceMgrHomeItemView">
+        <attr name="label" />
+        <attr name="hint" />
+    </declare-styleable>
+
+    <declare-styleable name="DeviceInfoItemView">
+        <attr name="label" />
+        <attr name="info" />
+        <attr name="editable" />
+    </declare-styleable>
+</resources>

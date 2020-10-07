@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="serviceResEntity"
+            type="com.blueeyescloud.ext.home.ServiceResEntity" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_95dp"
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_6dp"
+        android:layout_marginRight="@dimen/dimen_16dp"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:foreground="?android:selectableItemBackground"
+        app:cardElevation="@dimen/dimen_2dp"
+        app:cardUseCompatPadding="true"
+        app:contentPaddingLeft="@dimen/dimen_20dp"
+        app:contentPaddingRight="@dimen/dimen_20dp">
+
+        <ImageView
+            android:id="@+id/iv_tool_icon"
+            android:layout_width="@dimen/dimen_49dp"
+            android:layout_height="@dimen/dimen_49dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_ext_home_device_master"
+            app:placeholder="@{serviceResEntity.icon}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen_70dp"
+            android:clipChildren="false">
+
+            <TextView
+                android:id="@+id/tv_tool_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_0dp"
+                android:text="@{serviceResEntity.name}" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_09dp"
+                android:layout_toRightOf="@id/tv_tool_name"
+                android:background="@drawable/ic_ext_home_limited_time_free"
+                android:visibility="@{serviceResEntity.limitedFree ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_tool_name"
+                android:layout_alignLeft="@id/tv_tool_name"
+                android:layout_marginTop="@dimen/dimen_12dp"
+                android:text="@{serviceResEntity.description}" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
